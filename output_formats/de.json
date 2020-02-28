@@ -1,0 +1,119 @@
+{
+  "pos": {
+    "key": "Wortart",
+    "values": {
+      "adjective": "Adjektiv",
+      "noun": "Substantiv",
+      "verb": "Verb",
+      "adverb": "Adverb",
+      "participle": "",
+      "conjunction": "",
+      "preposition": "",
+      "pronoun": "",
+      "numeral": "",
+      "interjection": "",
+      "exclamation": "",
+      "punctuation": ""
+    }
+  },
+  "person": {
+    "key": "Person",
+    "values": {
+      "first person": "1. Ps.",
+      "second person": "2. Ps.",
+      "third person": "3. Ps."
+    }
+  },
+  "number": {
+    "key": "Numerus",
+    "values": {
+      "singular": "Sg.",
+      "plural": "Pl."
+    }
+  },
+  "tense": {
+    "key": "Tempus",
+    "values": {
+      "present": "Präsens",
+      "imperfect": "Imperfekt",
+      "perfect": "Perfekt",
+      "pluperfect": "Plusquamperfekt",
+      "future perfect": "Futur II",
+      "futur": "Futur I"
+    }
+  },
+  "mood": {
+    "key": "Modus",
+    "values": {
+      "indicative": "Indikativ",
+      "subjunctive": "Konjunktiv",
+      "infinitive": "Infinitiv",
+      "imperative": "Imperativ",
+      "participle": "Partizip",
+      "gerund": "Gerundium",
+      "gerundive": "Gerundiv",
+      "supine": "Supin"
+    }
+  },
+  "voice": {
+    "key": "Genus verbi",
+    "values": {
+      "active": "Aktiv",
+      "passive": "Passiv"
+    }
+  },
+  "gender": {
+    "key": "Genus",
+    "values": {
+      "masculine": "maskulin",
+      "feminine": "feminin",
+      "neuter": "neutrum"
+    }
+  },
+  "case": {
+    "key": "Kasus",
+    "values": {
+      "nominative": "Nominativ",
+      "genitive": "Genitiv",
+      "dative": "Dativ",
+      "accusative": "Akkusativ",
+      "ablative": "Ablativ",
+      "vocative": "Vokativ",
+      "locative": "Lokativ"
+    }
+  },
+  "degree": {
+    "key": "Steigerung",
+    "values": {
+      "positive": "Positiv",
+      "comparative": "Komparativ",
+      "superlative": "Superlativ"
+    }
+  },
+  "conjugation": {
+    "key": "Konjugationsklasse",
+    "values": {
+      "conj_a": "a-Konjugation",
+      "conj_e": "e-Konjugation",
+      "conj_k": "konsonantische Konjugatin",
+      "conj_i": "i-Konjugation"
+    }
+  },
+  "declination": {
+    "key": "Deklinationsklasse",
+    "values": {
+      "decl_a": "a-Deklination",
+      "decl_o": "o-Deklination",
+      "decl_k":  "konsonantische Deklination",
+      "decl_u": "u-Deklination",
+      "decl_e":  "e-Deklination"
+    }
+  },
+  "suffix": {
+    "key": "Stammerweiterung",
+    "values": {
+      "i-stem": "mit i-Erweiterung",
+      "r-stem": "mit r-Stamm"
+    }
+  }
+}
