@@ -4,15 +4,16 @@
 namespace App\APIs\POSTagMapper;
 
 
-use App\APIs\Morph\POSTagMapper\intermediate_formats\LookupTablesWordnet;
+
+use App\APIs\POSTagMapper\intermediate_formats\LookupTablesCLTK;
 
 /**
  * Will map morpho-String of Latin Wordnet API to human readable format
  * @package App\APIs\MorphAPIs
  */
-class POSTagMapper_Wordnet extends POSTagMapper {
+class POSTagMapper_CLTK extends POSTagMapper {
 
-    use LookupTablesWordnet;
+    use LookupTablesCLTK;
     /**
      * @var string
      */
@@ -56,7 +57,9 @@ class POSTagMapper_Wordnet extends POSTagMapper {
 
     public function __construct(string $POSString)
     {
-        $this->POSString = $POSString;
+        // Input: "[["amicis", "N-P---MB-"]]"
+        // Output: "n-p---mb-"
+        $this->POSString = strtolower(json_decode($POSString, true)[0][1]);
     }
 
 
@@ -84,22 +87,19 @@ class POSTagMapper_Wordnet extends POSTagMapper {
                     ->readVoice()
                     ->readGender()
                     ->readCase()
-                    ->readConjugation()
-                    ->readVerbSuffix();
+                    ->readConjugation();
                 break;
             case 'noun':
                 $this->readNumber()
                     ->readGender()
                     ->readCase()
-                    ->readDeclination()
-                    ->readNounSuffix();
+                    ->readDeclination();
                 break;
             case 'adjective':
                 $this->readDegree()
                     ->readNumber()
                     ->readGender()
-                    ->readCase()
-                    ->readAdjectiveSuffix();
+                    ->readCase();
                 break;
             case 'adverb':
                 $this->readDegree();

@@ -1,7 +1,7 @@
 <?php
 
 
-namespace App\APIs\MorphAPIs\POSTagMapper;
+namespace App\APIs\POSTagMapper;
 
 /**
  * Will convert ConLL-String(???) to human-readable format
@@ -40,19 +40,20 @@ class POSTagMapper {
      * @param string $POSString
      * @param string $InputFormat
      */
-    public function __construct(string $POSString, string $InputFormat)
+    public function __construct(string $POSString, string $InputFormat = "wordnet")
     {
         $this->POSString = $POSString;
         switch ($InputFormat) {
             case 'wordnet':
                 $this->FormatConverter = new POSTagMapper_Wordnet($POSString);
                 break;
+            case 'cltk':
+                $this->FormatConverter = new POSTagMapper_CLTK($POSString);
+                break;
             case 'perseus_treebank':
                 $this->FormatConverter = null;
                 break;
-            default:
-                $this->FormatConverter = new POSTagMapper_Wordnet($POSString);
-                break;
+
         }
 
 
@@ -104,6 +105,13 @@ class POSTagMapper {
 
 
 
+    public function getConvertedValuesArray()
+    {
+        return array_values($this->ConvertedFormat);
+    }
+
+
+
     /**
      * @return false|string
      */
@@ -121,7 +129,7 @@ class POSTagMapper {
      */
     public function convert(string $OutputFormat)
     {
-        $this->ConversionFormat = json_decode(file_get_contents(base_path("app/APIs/MorphAPIs/POSTagMapper/output_formats/" . $OutputFormat . ".json")), true);
+        $this->ConversionFormat = json_decode(file_get_contents(base_path("app/APIs/POSTagMapper/output_formats/" . $OutputFormat . ".json")), true);
         $this->ConvertedFormat = [];
         foreach ($this->getIntermediateArray() as $IntermediateFormatKey => $IntermediateFormatValue) {
             $Key_Translated = $this->ConversionFormat[ $IntermediateFormatKey ]["key"];

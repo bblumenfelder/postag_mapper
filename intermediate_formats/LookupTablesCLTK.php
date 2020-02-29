@@ -4,15 +4,23 @@
 namespace App\APIs\POSTagMapper\intermediate_formats;
 
 
-trait LookupTablesWordnet {
+trait LookupTablesCLTK {
 
     private function fieldPOS($letter)
     {
         return [
-                   "a" => "adjective",
                    "n" => "noun",
                    "v" => "verb",
-                   "r" => "adverb",
+                   "t" => "participle",
+                   "a" => "adjective",
+                   "d" => "adverb",
+                   "c" => "conjunction",
+                   "r" => "preposition",
+                   "p" => "pronoun",
+                   "m" => "numeral",
+                   "i" => "interjection",
+                   "e" => "exclamation",
+                   "u" => "punctuation",
                ][ $letter ];
     }
 
@@ -131,6 +139,7 @@ trait LookupTablesWordnet {
     }
 
 
+
     private function fieldDeclination($letter)
     {
         return [
@@ -151,12 +160,17 @@ trait LookupTablesWordnet {
                ][ $letter ] ?? null;
     }
 
+
+
     private function fieldNounSuffix($letter)
     {
         return [
                    "r" => "r_stem",
                ][ $letter ] ?? null;
     }
+
+
+
     private function fieldAdjectiveSuffix($letter)
     {
         return [
